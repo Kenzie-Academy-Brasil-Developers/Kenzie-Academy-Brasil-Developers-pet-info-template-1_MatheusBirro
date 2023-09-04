@@ -43,5 +43,73 @@
         <!-- Aqui serão renderizados os posts -->
       </section>
     </main>
+    <!-- Modal de Criação do POST -->
+    <dialog id="modal__create-post">
+      <div class="content_form-create">
+        <form class="form_create-post">
+          <div class="modal_header-container">
+            <h2 class="form__title title2 bold">Criando novo post</h2>
+            <div class="close_modal">X</div>
+          </div>
+          <fieldset class="fieldset__container">
+            <label class="text3 bold" for="user">Título do post</label>
+              <textarea name="titulo-post" class="text3 input_modal" id="titulo__create-post" cols="30" rows="1" placeholder="Digite o título aqui..." required></textarea>
+            <label class="text3 bold" for="Email">Conteúdo do post</label>
+              <textarea name="body-post" class="text3" id="content__create-post" cols="30" rows="10" placeholder="Desenvolva o conteúdo do post aqui..." required></textarea>
+          </fieldset>
+          <div class="container_buttons">
+            <button id="cancel__button" class="btn btn--gray text3 ">
+              Cancelar
+            </button>
+            <button id="publish__button" class="btn btn--brand text3">
+              Publicar
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <dialog id="modal__edit-post">
+      <div class="content_form-create">
+      <form class="">
+        <div class="modal_header-container">
+          <h2 class="form__title title2 bold">Edição</h2>
+          <div class="close_edit-modal">X</div>
+        </div>
+        <fieldset class="fieldset__container">
+          <label class="text3 bold" for="user">Título do post</label>
+          <textarea name="titulo-post" class="text3 input_modal" id="titulo__edit-post" cols="30" rows="1" placeholder="Digite o título aqui..." required></textarea>
+          <label class="text3 bold" for="Email">Conteúdo do post</label>
+          <textarea name="body-post" class="text3 input_modal" id="body__edit-post" cols="30" rows="10" placeholder="Desenvolva o conteúdo do post aqui..." required></textarea>
+        </fieldset>
+        <div class="container_buttons">
+        <button id="cancel__button" class="btn btn--gray text3 ">
+          Cancelar
+        </button>
+        <button id="edit__button" class="btn btn--brand text3">
+          Salvar Alterações
+        </button>
+      </div>
+      </form>
+    </div>
+    </dialog>
+    <dialog id="modal__delete-post">
+      <div class="container_delete-post">
+        <div class="modal_header-container">
+          <h2 class="form__title title2 bold">Criando novo post</h2>
+          <div class="close_modal-delete">X</div>
+        </div>
+        <small>Essa ação nao poderá ser desfeita, então pedimos que tenha cautela antes de concluir</small>
+        <div class="container_buttons-delete">
+        <button id="cancel__button-delete" class="btn btn--gray text3 ">
+          Cancelar
+        </button>
+        <button id="" class="delete__button-modal btn btn--brand-delete text3">
+          Sim, excluir este post
+        </button>
+      </div>
+      </div>
+    </dialog>
+    <dialog id="modal__access-post">
+    </dialog>
   </body>
 </html>

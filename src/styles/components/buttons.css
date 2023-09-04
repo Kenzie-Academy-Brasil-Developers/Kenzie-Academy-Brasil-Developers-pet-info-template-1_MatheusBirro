@@ -21,6 +21,17 @@
   border-color: var(--brand-2);
 }
 
+.btn--brand-delete {
+  color: var(--gray-9);
+  background-color: var(--alert-1);
+  border-color: var(--alert-1);
+}
+
+.btn--brand-delete:hover {
+  background-color: var(--alert-2);
+  border-color: var(--alert-2);
+}
+
 .btn--gray {
   color: var(--gray-1);
   background-color: var(--gray-7);

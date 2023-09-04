@@ -1,4 +1,4 @@
-import { getCurrentUserInfo, getAllPosts } from "./requests.js";
+import { getCurrentUserInfo, getAllPosts} from "./requests.js";
 
 // Renderiza todos os posts
 export async function renderAllPosts() {
@@ -6,10 +6,10 @@ export async function renderAllPosts() {
   postSection.innerHTML = "";
   const posts = await getAllPosts();
 
-  posts.forEach(async (post) => {
-    const postArticle = await renderPost(post, true);
+  for (let i = 0; i < posts.length; i++) {
+    const postArticle = await renderPost(posts[i], true);
     postSection.appendChild(postArticle);
-  });
+  }
 }
 
 // Renderiza um post
@@ -35,9 +35,41 @@ async function renderPost(post) {
   openButton.dataset.id = post.id;
 
   postContainer.append(postHeader, postTitle, postContent, openButton);
+  
+  return postContainer;
+}
+
+// Renderiza um post
+export async function renderPostModal(post) {
+  const postContainer = document.createElement("article");
+  postContainer.classList.add("post","container_access-post");
+
+  const postTitle = document.createElement("h2");
+  postTitle.classList.add("post__title", "text1", "bolder");
+  postTitle.innerText = post.title;
+
+  const divHeader = document.createElement("div");
+  divHeader.classList.add("container_header-post");
+
+  const postContent = document.createElement("p");
+  postContent.classList.add("post__content", "text3");
+
+  const closeBtn = document.createElement("div");
+  closeBtn.innerText = "X";
+  closeBtn.classList.add("close_btn-modal");
+
+  const postHeader = await renderPostHeaderModal(post);
+
+  divHeader.append(postHeader,closeBtn)
+
+  postContent.classList.add("text3");
+  postContent.innerText = post.content;
+
+  postContainer.append(divHeader, postTitle, postContent);
 
   return postContainer;
 }
+
 
 // Verifica a permissao do usuário para editar/deletar um post
 async function checkEditPermission(authorID) {
@@ -53,7 +85,6 @@ async function checkEditPermission(authorID) {
 // Renderiza o cabeçalho de um post no feed
 async function renderPostHeader(post) {
   const userInfo = post.user;
-
   const postDateInfo = handleDate(post.createdAt);
 
   const postHeader = document.createElement("header");
@@ -88,6 +119,38 @@ async function renderPostHeader(post) {
     const postActions = renderPostActions(post.id);
     postHeader.appendChild(postActions);
   }
+
+  return postHeader;
+}
+
+async function renderPostHeaderModal(post) {
+  const userInfo = post.user;
+  const postDateInfo = handleDate(post.createdAt);
+  const postHeader = document.createElement("header");
+  postHeader.classList.add("post__header");
+
+  const postInfo = document.createElement("div");
+  postInfo.classList.add("post__info");
+
+  const authorImage = document.createElement("img");
+  authorImage.classList.add("post__author-image");
+  authorImage.src = userInfo.avatar;
+
+  const authorName = document.createElement("h2");
+  authorName.classList.add("post__author-name", "text4", "bolder");
+  authorName.innerText = userInfo.username;
+
+  const divisor = document.createElement("small");
+  divisor.innerText = "|";
+  divisor.classList.add("post__date", "text4");
+
+  const postDate = document.createElement("small");
+  postDate.classList.add("post__date", "text4");
+  postDate.innerText = postDateInfo;
+
+  postInfo.append(authorImage, authorName, divisor, postDate);
+
+  postHeader.appendChild(postInfo);
 
   return postHeader;
 }

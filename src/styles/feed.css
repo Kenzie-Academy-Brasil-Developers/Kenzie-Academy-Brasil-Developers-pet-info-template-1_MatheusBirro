@@ -175,3 +175,75 @@
 ::-webkit-scrollbar-thumb {
   background-color: var(--brand-1);
 }
+
+/* MODAL */
+
+/* Modal Cria Post */
+.modal_header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close_modal{
+  padding: 5px;
+  background-color: var(--gray-6);
+  border-radius: var(--defaultRadius);
+  text-align: center;
+  cursor: pointer;
+}
+.content_form-create{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.input_modal{
+  width: 550px;
+}
+.container_buttons{
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+}
+
+/* Modal Acessa Post */
+.container_access-post{
+  max-width: 550px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.modal_access-post{
+width: 90%;
+}
+.container_header-post{
+  width: 550px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close_btn-modal{
+  padding: 5px;
+  background-color: var(--gray-6);
+  border-radius: var(--defaultRadius);
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Modal Delete Post */
+.container_delete-post{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.container_buttons-delete{
+  display: flex;
+  gap: 1rem;
+}
+.close_modal-delete{
+  padding: 5px;
+  background-color: var(--gray-6);
+  border-radius: var(--defaultRadius);
+  text-align: center;
+  cursor: pointer;
+}
