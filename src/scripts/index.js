@@ -1,10 +1,6 @@
 import { loginTokenRequest } from "./requests.js";
 
-// teste@mail.com
-// 123
-
-// Desenvolva as funcionalidades de login aqui
-const login = (() => {
+function login() {
     const btnAcess = document.querySelector("#login__submit")
     btnAcess.addEventListener('click', async (e) => {
         e.preventDefault()
@@ -24,19 +20,19 @@ const login = (() => {
 
         const tokenUser = await loginTokenRequest(bodyRequest)
     })
-})
-login()
+}
 
-const hadleRegisterPage = (() => {
+function hadleRegisterPage() {
     const btnRegister = document.querySelector('#register__button');
 
     btnRegister.addEventListener('click', ()=> {
         location.replace(`./src/pages/register.html`)
     })
-})
-hadleRegisterPage()
-
-function deletePost() {
-    console.log("oi");
 }
-  
+
+function main() {
+    login()
+    hadleRegisterPage()  
+}
+
+main()

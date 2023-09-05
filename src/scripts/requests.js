@@ -28,7 +28,6 @@ export async function getAllPosts() {
 }
 
 // Desenvolva as funcionalidades de requisições aqui
-
 export async function getPostId(id) {
   const request = await fetch(`${baseUrl}/posts/${id}`, {
     method: "GET",
@@ -38,7 +37,7 @@ export async function getPostId(id) {
   return posts;
 }
 
-// Faz a request de login com a API
+// Request de login
 export async function loginTokenRequest(body){
   //Passa para a API os valores inseridos no input pelo usuário
   const token = await fetch(`${baseUrl}/login`,{method: 'POST',
@@ -72,7 +71,7 @@ export async function loginTokenRequest(body){
   return token
 }
 
-// Faz a request da criação do usuário com a API
+// Request da criação do usuário 
 export async function createUserRequest(body){
   //Passa para a API os valores inseridos no input pelo usuário
   const user = await fetch(`${baseUrl}/users/create`,{method: 'POST',
@@ -97,7 +96,7 @@ export async function createUserRequest(body){
   return user
 }
 
-// Faz a request da criação do usuário com a API
+// Request da criação do Post
 export async function createPostRequest(body){
   //Passa para a API os valores inseridos no input pelo usuário
   const post = await fetch(`${baseUrl}/posts/create`,{method: 'POST',
@@ -117,6 +116,7 @@ export async function createPostRequest(body){
   return post
 }
 
+// Request para deletar o Post pelo id
 export async function deletePostRequest(id) {
   const deletePost = await fetch(`${baseUrl}/posts/${id}`,{method: 'DELETE',
   headers: requestHeaders,
@@ -135,6 +135,7 @@ export async function deletePostRequest(id) {
   return deletePost
 }
 
+// Request de edição do Post pelo id
 export async function editPostRequest(id, body){
   const edit = await fetch(`${baseUrl}/posts/${id}`,{method: 'PATCH',
   headers: requestHeaders,

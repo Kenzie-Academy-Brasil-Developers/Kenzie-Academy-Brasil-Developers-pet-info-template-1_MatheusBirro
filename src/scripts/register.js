@@ -1,16 +1,15 @@
 // Desenvolva as funcionalidades de cadastro aqui
 import { createUserRequest } from "./requests.js";
 
-const handleHome = (() => {
+function handleHome() {
     const homeBtn = document.querySelector('#redirect__button');
 
     homeBtn.addEventListener('click', ()=> {
         location.replace(`../../index.html`)
     })
-})
-handleHome();
+}
 
-const register = (()=> {
+function register() {
     const registerBtn = document.querySelector('#register__submit')
 
     registerBtn.addEventListener('click', async(e) => {
@@ -26,5 +25,11 @@ const register = (()=> {
 
         const user = await createUserRequest(JSON.stringify(bodyRegister))
     })
-});
-register()
+}
+
+function main() {
+    handleHome();
+    register();
+}
+
+main();

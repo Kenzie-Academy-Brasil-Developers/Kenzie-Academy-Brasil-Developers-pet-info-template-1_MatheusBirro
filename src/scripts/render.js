@@ -39,7 +39,7 @@ async function renderPost(post) {
   return postContainer;
 }
 
-// Renderiza um post
+// Renderiza um post no modal Access post
 export async function renderPostModal(post) {
   const postContainer = document.createElement("article");
   postContainer.classList.add("post","container_access-post");
@@ -69,7 +69,6 @@ export async function renderPostModal(post) {
 
   return postContainer;
 }
-
 
 // Verifica a permissao do usuário para editar/deletar um post
 async function checkEditPermission(authorID) {
@@ -123,6 +122,7 @@ async function renderPostHeader(post) {
   return postHeader;
 }
 
+// Renderiza o cabeçalho de um post no modal Access post
 async function renderPostHeaderModal(post) {
   const userInfo = post.user;
   const postDateInfo = handleDate(post.createdAt);

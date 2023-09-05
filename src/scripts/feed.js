@@ -1,7 +1,6 @@
 import { renderAllPosts, renderPostModal } from "./render.js";
 import { createPostRequest, deletePostRequest, editPostRequest, getCurrentUserInfo, getPostId } from "./requests.js";
 
-//Renderiza o menu de acordo com o usuário
 async function renderMenu() {
   const userInfo = await getCurrentUserInfo();
   const h2 = document.querySelector('.user__uniquename ')
@@ -160,7 +159,6 @@ function handlePublish() {
   })
 }
 
-// Abre o modal de criação de post
 function newPost() {
   const btnNewPost = document.querySelector('#user__newpost');
   const modal = document.querySelector('#modal__create-post')
@@ -234,8 +232,6 @@ async function main() {
   handleEditPost();
 
   handleDeletePost();
-
-  handleAccessPost();
 }
 
 main();
