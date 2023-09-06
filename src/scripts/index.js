@@ -25,7 +25,8 @@ function login() {
 function hadleRegisterPage() {
     const btnRegister = document.querySelector('#register__button');
 
-    btnRegister.addEventListener('click', ()=> {
+    btnRegister.addEventListener('click', (e)=> {
+        e.preventDefault();
         location.replace(`./src/pages/register.html`)
     })
 }

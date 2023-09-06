@@ -204,7 +204,6 @@ function handleAccessPost() {
       const modal = document.querySelector('#modal__access-post')
       modal.innerHTML = ""
       const post = await getPostId(accessBtn.dataset.id)
-      console.log(post);
       modal.appendChild(await renderPostModal(post))
       modal.showModal()
 
